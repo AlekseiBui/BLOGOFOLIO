@@ -1,0 +1,59 @@
+.PostList {
+    width: 1120px;
+    height: 1435px;
+    display: grid;
+    grid-template-rows: repeat(6, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 39px;
+    grid-template-areas:
+        "BigPost BigPost SmallPost1"
+        "BigPost BigPost SmallPost2"
+        "MidPost1 MidPost2 SmallPost3"
+        "MidPost1 MidPost2 SmallPost4"
+        "MidPost3 MidPost4 SmallPost5"
+        "MidPost3 MidPost4 SmallPost6";
+
+    div:nth-child(1) {
+        grid-area: BigPost;
+    }
+
+    div:nth-child(2) {
+        grid-area: MidPost1;
+    }
+
+    div:nth-child(3) {
+        grid-area: MidPost2;
+    }
+
+    div:nth-child(4) {
+        grid-area: MidPost3;
+    }
+
+    div:nth-child(5) {
+        grid-area: MidPost4;
+    }
+
+    div:nth-child(6) {
+        grid-area: SmallPost1;
+    }
+
+    div:nth-child(7) {
+        grid-area: SmallPost2;
+    }
+
+    div:nth-child(8) {
+        grid-area: SmallPost3;
+    }
+
+    div:nth-child(9) {
+        grid-area: SmallPost4;
+    }
+
+    div:nth-child(10) {
+        grid-area: SmallPost5;
+    }
+
+    div:nth-child(11) {
+        grid-area: SmallPost6;
+    }
+}

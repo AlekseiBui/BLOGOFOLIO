@@ -1,0 +1,64 @@
+.MidPost {
+    width: 352px;
+    height: 452px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-bottom: 2px solid #DADADA;
+
+    img {
+        width: 100%;
+        height: 246px;
+    }
+
+    div:nth-child(2) {
+        color: #8D8E97;
+        font-size: 16px;
+        font-weight: 400;
+    }
+
+    a {
+        text-decoration: none;
+        color: black;
+        font-size: 18px;
+        font-weight: 600;
+    }
+
+    a:hover {
+        color: #2231AA;
+    }
+}
+
+.MidPost_BottomPart {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+
+    img {
+        width: 24px;
+        height: 24px;
+    }
+
+    .LikeDislike {
+        display: flex;
+        flex-direction: row;
+
+        div {
+            margin-right: 15px;
+            color: black;
+            font-size: 20px;
+            font-weight: 500;
+            line-height: 24px;
+        }
+
+        img {
+            margin-right: 15px;
+        }
+    }
+
+    .FavOptions {
+        img {
+            margin-left: 15px;
+        }
+    }
+}
