@@ -1,15 +1,4 @@
-export type PostType = {
-    id: number
-    image: string
-    text: string
-    date: string
-    title: string
-}
-
-type PostResponseType = {
-    count: number
-    results: PostType[]
-}
+import { PostResponseType, PostType } from "../Types/Types"
 
 export const GetPosts = (): Promise<PostType[]> => {
     return fetch('https://studapi.teachmeskills.by/blog/posts/?limit=11')
