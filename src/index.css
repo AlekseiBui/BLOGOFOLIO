@@ -13,7 +13,9 @@ code {
         monospace;
 }
 
-#root>div {
-    margin-left: auto;
-    margin-right: auto;
+#root {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: auto;
 }

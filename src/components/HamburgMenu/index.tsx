@@ -5,6 +5,8 @@ import styles from './styles.module.scss'
 import './styles.module.scss'
 import { useAuthContext } from '../../hoc/AuthProvider'
 import { Link } from 'react-router-dom'
+import { ThemeContext } from '../../hoc/ThemeProvider'
+import { useContext } from 'react'
 
 type Props = {
     isOpen: boolean
@@ -16,9 +18,9 @@ const HamburgMenu = (props: Props) => {
         BurgMenuStyle = styles.BurgerMenuClose
     }
 
-    const OpenCloseMenu = () => { return BurgMenuStyle = styles.BurgerMenuClose }
+    const { theme, setTheme } = useContext(ThemeContext)
 
-    const { isAuthorized, login, logout } = useAuthContext()
+    const { isAuthorized, logout } = useAuthContext()
 
     if (isAuthorized) {
         return (
@@ -31,8 +33,8 @@ const HamburgMenu = (props: Props) => {
                 </div>
                 <div className={`${styles.BurgerMenu_Bottom}`}>
                     <div>
-                        <button><img src={`${LightTheme}`} alt="Sun" /></button>
-                        <button><img src={`${DarkTheme}`} alt="Moon" /></button>
+                        <button onClick={() => setTheme({ theme: 'light' })}><img src={`${LightTheme}`} alt="Sun" /></button>
+                        <button onClick={() => setTheme({ theme: 'dark' })}><img src={`${DarkTheme}`} alt="Moon" /></button>
                     </div>
                     <button onClick={logout}>Log out</button>
                 </div>
@@ -46,8 +48,8 @@ const HamburgMenu = (props: Props) => {
                 </div>
                 <div className={`${styles.BurgerMenu_Bottom}`}>
                     <div>
-                        <button><img src={`${LightTheme}`} alt="" /></button>
-                        <button><img src={`${DarkTheme}`} alt="" /></button>
+                        <button onClick={() => setTheme({ theme: 'light' })}><img src={`${LightTheme}`} alt="Sun" /></button>
+                        <button onClick={() => setTheme({ theme: 'dark' })}><img src={`${DarkTheme}`} alt="Moon" /></button>
                     </div>
                     <Link to='/SignIn'><button>Sign in</button></Link>
                 </div>

@@ -29,13 +29,8 @@
 
             a {
                 text-decoration: none;
-                color: black;
                 font-size: 18px;
                 font-weight: 600;
-            }
-
-            a:hover {
-                color: #2231AA;
             }
         }
 
@@ -58,7 +53,6 @@
 
             div {
                 margin-right: 10px;
-                color: black;
                 font-size: 18px;
                 font-weight: 500;
                 line-height: 22px;
@@ -72,11 +66,21 @@
         }
 
         .FavOptions {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+
             img {
                 margin-left: 10px;
-                width: 22px;
-                height: 22px;
             }
         }
     }
+}
+
+a {
+    color: black;
+}
+
+a:hover {
+    color: #2231AA;
 }

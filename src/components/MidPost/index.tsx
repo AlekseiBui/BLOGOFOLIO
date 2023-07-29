@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import styles from './styles.module.scss'
 import './styles.module.scss'
 import Like from './../../assets/Like.png'
@@ -6,6 +6,12 @@ import Dislike from './../../assets/Dislike.png'
 import Bookmark from './../../assets/Bookmark.png'
 import Dots from './../../assets/Dots.png'
 import { Link } from 'react-router-dom'
+import WhiteLike from './../../assets/WhiteLike.png'
+import WhiteDislike from './../../assets/WhiteDislike.png'
+import WhiteBookmark from './../../assets/WhiteBookmark.png'
+import WhiteDots from './../../assets/WhiteDots.png'
+import { ThemeContext } from '../../hoc/ThemeProvider'
+import { Options } from '../../Types/Types'
 
 type Props = {
     id: number;
@@ -15,6 +21,36 @@ type Props = {
 }
 
 const MidPost = (props: Props) => {
+
+    const { theme } = useContext(ThemeContext)
+
+    const [optionsState, SetOpttionsState] = useState<Options>({
+        like: Like,
+        dislike: Dislike,
+        bookmark: Bookmark,
+        dots: Dots
+    })
+
+    useEffect(() => {
+        if (theme.theme === 'light') {
+            SetOpttionsState({
+                like: Like,
+                dislike: Dislike,
+                bookmark: Bookmark,
+                dots: Dots
+            }
+            )
+
+        } else if (theme.theme === 'dark') {
+            SetOpttionsState({
+                like: WhiteLike,
+                dislike: WhiteDislike,
+                bookmark: WhiteBookmark,
+                dots: WhiteDots
+            })
+        }
+    }, [theme.theme])
+
     return (
         <div className={`${styles.MidPost}`}>
             <img src={`${props.image}`} />
@@ -25,14 +61,14 @@ const MidPost = (props: Props) => {
 
             <div className={`${styles.MidPost_BottomPart}`}>
                 <div className={`${styles.LikeDislike}`}>
-                    <img src={`${Like}`} />
+                    <img src={`${optionsState.like}`} />
                     <div>10</div>
-                    <img src={`${Dislike}`} />
+                    <img src={`${optionsState.dislike}`} />
                     <div>10</div>
                 </div>
                 <div className={`${styles.FavOptions}`}>
-                    <img src={`${Bookmark}`} />
-                    <img src={`${Dots}`} />
+                    <img src={`${optionsState.bookmark}`} />
+                    <img src={`${optionsState.dots}`} />
                 </div>
             </div>
 
