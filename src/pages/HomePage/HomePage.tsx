@@ -5,7 +5,7 @@ import styles from './styles.module.scss'
 import './styles.module.scss'
 
 const HomePage = () => {
-    const [tabState, setTabState] = useState<'All' | 'My favorites' | 'Popular'>('All')
+    const [tabState, setTabState] = useState<'All' | 'My favorites' | 'My Posts'>('All')
 
     const tabStatePostList = (e: React.FormEvent<HTMLDivElement>) => {
         const eTargetText = e.currentTarget.innerText
@@ -14,7 +14,7 @@ const HomePage = () => {
         } else if (eTargetText === 'My favorites') {
             return setTabState('My favorites')
         } else {
-            return setTabState('Popular')
+            return setTabState('My Posts')
         }
     }
 
@@ -24,9 +24,7 @@ const HomePage = () => {
             <Tabs onClick={tabStatePostList} />
             <PostList tab={tabState} />
             <div className={`${styles.Paging}`}>
-                <div>Prev</div>
                 <div>1 2 3 ... 6</div>
-                <div>Next</div>
             </div>
         </>
     )

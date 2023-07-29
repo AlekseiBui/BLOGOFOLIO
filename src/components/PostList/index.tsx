@@ -10,7 +10,7 @@ import { useSelector } from 'react-redux'
 import { selectFavPost } from '../../Store/FavPosts/Selector'
 
 type Props = {
-    tab: 'All' | 'My favorites' | 'Popular'
+    tab: 'All' | 'My favorites' | 'My Posts'
 }
 
 const PostList = (props: Props) => {

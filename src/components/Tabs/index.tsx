@@ -10,7 +10,7 @@ const Tabs = (props: Props) => {
         <div className={`${styles.tabs}`}>
             <div onClick={props.onClick} className={`${styles.tabs_all}`}>All</div>
             <div onClick={props.onClick} className={`${styles.tabs_favorites}`}>My favorites</div>
-            <div onClick={props.onClick} className={`${styles.tabs_popular}`}>Popular</div>
+            <div onClick={props.onClick} className={`${styles.tabs_popular}`}>My Posts</div>
         </div>
     )
 }

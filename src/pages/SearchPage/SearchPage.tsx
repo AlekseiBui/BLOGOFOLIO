@@ -9,9 +9,7 @@ const SearchPage = () => {
             <SearchedPost id={1} date='11.05.2000' title='TEXT'
                 image='https://avatars.mds.yandex.net/i?id=9262795b58531aeb90e5861a2a437c18e26ef136-5468635-images-thumbs&n=13' />
             <div className={`${styles.Paging}`}>
-                <div>Prev</div>
                 <div>1 2 3 ... 6</div>
-                <div>Next</div>
             </div>
         </>
     )
