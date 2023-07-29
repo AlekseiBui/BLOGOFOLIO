@@ -4,7 +4,8 @@ import './styles.module.scss'
 import BigPost from '../BigPost'
 import MidPost from '../MidPost'
 import SmallPost from '../SmallPost'
-import { GetPosts, PostType } from '../../Services/PostService'
+import { GetPosts } from '../../Services/PostService'
+import { PostType } from '../../Types/Types'
 
 const PostList = () => {
 

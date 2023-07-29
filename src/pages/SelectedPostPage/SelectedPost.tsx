@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
-import { PostType, GetPost } from '../../Services/PostService'
+import { GetPost } from '../../Services/PostService'
 import SinglePostLike from '../../assets/SinglePostLike.png'
 import SinglePostDisike from '../../assets/SinglePostDislike.png'
 import AddToFavorites from '../../assets/AddToFavorites.png'
 import styles from './styles.module.scss'
 import './styles.module.scss'
+import { PostType } from '../../Types/Types'
 
 const SelectedPost = () => {
     const { id } = useParams()

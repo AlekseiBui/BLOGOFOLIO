@@ -8,6 +8,7 @@ import SignUp from './pages/SignUpPage copy/SignUp';
 import Success from './pages/SuccessPage/Success';
 import Layout from './components/Layout';
 import ThemeProvider from './hoc/ThemeProvider';
+import SearchPage from './pages/SearchPage/SearchPage';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
               <Route path='SignIn' element={<SignIn />} />
               <Route path='SignUp' element={<SignUp />} />
               <Route path='Success' element={<Success />} />
+              <Route path='SearchedPage' element={<SearchPage />} />
               <Route path='*' element={<div>Page not found</div>} />
             </Route>
           </Routes>

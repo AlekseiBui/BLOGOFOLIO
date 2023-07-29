@@ -6,6 +6,7 @@ import SearchBtn from '../SearchBtn'
 import styles from './styles.module.scss'
 import './styles.module.scss'
 import { useAuthContext } from '../../hoc/AuthProvider'
+import { Link } from 'react-router-dom'
 
 const Header = () => {
     const [burgMenu, setBurgMenu] = useState(false)
@@ -21,7 +22,7 @@ const Header = () => {
             <div className={`${styles.header}`}>
                 <HamburgBtn onClick={BurgMenuState} />
                 <div className={`${styles.header_rightPart}`}>
-                    <SearchBtn />
+                    <Link to='SearchedPage'><SearchBtn /></Link>
                     <LoginPlate username='Aleksey Buynevich' isAuthorized={isAuthorized} />
                 </div>
             </div>
