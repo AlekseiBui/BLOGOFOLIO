@@ -6,8 +6,11 @@ import MidPost from '../MidPost'
 import SmallPost from '../SmallPost'
 import { GetPosts } from '../../Services/PostService'
 import { PostType } from '../../Types/Types'
+import { useSelector } from 'react-redux'
+import { selectFavPost } from '../../Store/FavPosts/Selector'
 
 const PostList = () => {
+    const favPosts = useSelector(selectFavPost)
 
     const [posts, setPosts] = useState<PostType[]>([])
 
@@ -16,30 +19,46 @@ const PostList = () => {
     }, [])
 
     const firstBigPost = posts.slice(0, 1)
-
     const midPosts = posts.slice(1, 5)
-
     const smallPosts = posts.slice(5, 11)
 
-    return (
-        <div className={`${styles.PostList}`}>
-            {firstBigPost.map((post, index) => (
-                <BigPost key={index} id={post.id} date={post.date} title={post.title} text={post.text}
-                    image={post.image} />
-            ))}
+    const firstFavBigPost = favPosts.list.slice(0, 1)
+    const midFavPosts = favPosts.list.slice(1, 5)
+    const smallFavPosts = favPosts.list.slice(5, 11)
 
-            {midPosts.map((post, index) => (
-                <MidPost key={index} id={post.id} date={post.date} title={post.title}
-                    image={post.image} />
-            ))}
+    if (false) {
+        return (
+            <div className={`${styles.PostList}`}>
+                {firstBigPost.map((post, index) => (
+                    <BigPost key={index + post.id} post={post} />
+                ))}
 
-            {smallPosts.map((post, index) => (
-                <SmallPost key={index} id={post.id} date={post.date} title={post.title}
-                    image={post.image} />
-            ))}
+                {midPosts.map((post, index) => (
+                    <MidPost key={index + post.id} post={post} />
+                ))}
 
-        </div>
-    )
+                {smallPosts.map((post, index) => (
+                    <SmallPost key={index + post.id} post={post} />
+                ))}
+            </div>
+        )
+    } else {
+        return (
+            <div className={`${styles.PostList}`}>
+                {firstFavBigPost.map((post, index) => (
+                    <BigPost key={index + post.id} post={post} />
+                ))}
+
+                {midFavPosts.map((post, index) => (
+                    <MidPost key={index + post.id} post={post} />
+                ))}
+
+                {smallFavPosts.map((post, index) => (
+                    <SmallPost key={index + post.id} post={post} />
+                ))}
+            </div>
+        )
+    }
 }
 
 export default PostList

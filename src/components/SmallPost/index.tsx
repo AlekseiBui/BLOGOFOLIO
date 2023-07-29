@@ -11,14 +11,13 @@ import WhiteBookmark from './../../assets/WhiteBookmark.png'
 import WhiteDots from './../../assets/WhiteDots.png'
 import { ThemeContext } from '../../hoc/ThemeProvider'
 import { Link } from 'react-router-dom'
-import { Options } from '../../Types/Types'
+import { Options, PostType } from '../../Types/Types'
+import { useDispatch } from 'react-redux'
+import { setAsFavoriteAction } from '../../Store/FavPosts/Actions'
 
 
 type Props = {
-    id: number;
-    image?: string;
-    date: string;
-    title: string;
+    post: PostType
 }
 
 const SmallPost = (props: Props) => {
@@ -40,7 +39,6 @@ const SmallPost = (props: Props) => {
                 dots: Dots
             }
             )
-
         } else if (theme.theme === 'dark') {
             SetOpttionsState({
                 like: WhiteLike,
@@ -51,27 +49,32 @@ const SmallPost = (props: Props) => {
         }
     }, [theme.theme])
 
+    const dispatch = useDispatch()
+    const setAsFavorite = (post: PostType) => {
+        dispatch(setAsFavoriteAction(post))
+    }
+
     return (
         <div className={`${styles.SmallPost}`}>
             <div className={`${styles.SmallPost_UpperPart}`}>
                 <div className={`${styles.SmallPost_LeftPart}`}>
-                    <div>{props.date}</div>
-                    <div><Link to={'/SelectedPost/' + props.id}>{props.title}</Link></div>
+                    <div>{props.post.date}</div>
+                    <div><Link to={'/SelectedPost/' + props.post.id}>{props.post.title}</Link></div>
                 </div>
 
                 <div className={`${styles.SmallPost_RightPart}`}>
-                    <img src={`${props.image}`} />
+                    <img src={`${props.post.image}`} />
                 </div>
             </div>
             <div className={`${styles.SmallPost_BottomPart}`}>
                 <div className={`${styles.LikeDislike}`}>
-                    <img src={`${optionsState.like}`} />
+                    <button><img src={`${optionsState.like}`} /></button>
                     <div>10</div>
-                    <img src={`${optionsState.dislike}`} />
+                    <button><img src={`${optionsState.dislike}`} /></button>
                     <div>10</div>
                 </div>
                 <div className={`${styles.FavOptions}`}>
-                    <img src={`${optionsState.bookmark}`} />
+                    <button onClick={() => setAsFavorite(props.post)}><img src={`${optionsState.bookmark}`} /></button>
                     <img src={`${optionsState.dots}`} />
                 </div>
             </div>

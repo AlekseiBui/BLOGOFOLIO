@@ -12,7 +12,6 @@
     }
 
     div:nth-child(2) {
-        color: #8D8E97;
         font-size: 16px;
         font-weight: 400;
     }
@@ -40,7 +39,7 @@
             line-height: 24px;
         }
 
-        img {
+        button {
             margin-right: 15px;
         }
     }
@@ -50,8 +49,8 @@
         flex-direction: row;
         align-items: center;
 
-        img {
-            margin-left: 15px;
+        button {
+            margin-right: 15px;
         }
     }
 }
