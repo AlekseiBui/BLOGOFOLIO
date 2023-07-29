@@ -9,7 +9,11 @@ import { PostType } from '../../Types/Types'
 import { useSelector } from 'react-redux'
 import { selectFavPost } from '../../Store/FavPosts/Selector'
 
-const PostList = () => {
+type Props = {
+    tab: 'All' | 'My favorites' | 'Popular'
+}
+
+const PostList = (props: Props) => {
     const favPosts = useSelector(selectFavPost)
 
     const [posts, setPosts] = useState<PostType[]>([])
@@ -26,7 +30,7 @@ const PostList = () => {
     const midFavPosts = favPosts.list.slice(1, 5)
     const smallFavPosts = favPosts.list.slice(5, 11)
 
-    if (false) {
+    if (props.tab === 'All') {
         return (
             <div className={`${styles.PostList}`}>
                 {firstBigPost.map((post, index) => (

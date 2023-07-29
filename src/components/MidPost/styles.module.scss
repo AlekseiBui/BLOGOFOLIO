@@ -40,7 +40,14 @@
         }
 
         button {
+            border: none;
+            outline: none;
             margin-right: 15px;
+        }
+
+        button:active {
+            transition: 1s;
+            outline: 2px solid #2231AA;
         }
     }
 
@@ -50,7 +57,14 @@
         align-items: center;
 
         button {
+            border: none;
+            outline: none;
             margin-right: 15px;
+        }
+
+        button:active {
+            transition: 1s;
+            outline: 2px solid #2231AA;
         }
     }
 }
