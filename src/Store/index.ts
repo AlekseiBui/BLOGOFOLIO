@@ -6,7 +6,7 @@ import { PostsReducer } from './Posts/Reducert'
 
 const rootReducer = combineReducers({
     favPosts: FavPostReducer,
-    allPosts: PostsReducer
+    allPosts: PostsReducer,
 })
 
 export const store = configureStore({
