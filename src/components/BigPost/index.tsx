@@ -70,9 +70,9 @@ const BigPost = (props: Props) => {
             <div className={`${styles.BigPost_BottomPart}`}>
                 <div className={`${styles.LikeDislike}`}>
                     <button><img src={`${optionsState.like}`} /></button>
-                    <div>10</div>
+                    <div>0</div>
                     <button><img src={`${optionsState.dislike}`} /></button>
-                    <div>10</div>
+                    <div>0</div>
                 </div>
                 <div className={`${styles.FavOptions}`}>
                     <button onClick={() => setAsFavorite(props.post)}><img src={`${optionsState.bookmark}`} /></button>

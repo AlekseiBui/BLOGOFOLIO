@@ -6,7 +6,6 @@ import './styles.module.scss'
 
 const HomePage = () => {
     const [tabState, setTabState] = useState<'All' | 'My favorites' | 'My Posts'>('All')
-
     const tabStatePostList = (e: React.FormEvent<HTMLDivElement>) => {
         const eTargetText = e.currentTarget.innerText
         if (eTargetText === 'All') {
@@ -18,13 +17,23 @@ const HomePage = () => {
         }
     }
 
+    const [pageState, setPageState] = useState<number>(1)
+    const PostListPage = (e: React.FormEvent<HTMLButtonElement>): void => {
+        const eTargetText = +e.currentTarget.innerText * 11
+        return setPageState(eTargetText)
+    }
+
     return (
         <>
             <div className={`${styles.BlogName}`}>Blog</div>
             <Tabs onClick={tabStatePostList} />
-            <PostList tab={tabState} />
+            <PostList tab={tabState} page={pageState} />
             <div className={`${styles.Paging}`}>
-                <div>1 2 3 ... 6</div>
+                <button onClick={PostListPage}><div>1</div></button>
+                <button onClick={PostListPage}><div>2</div></button>
+                <button onClick={PostListPage}><div>3</div></button>
+                <button onClick={PostListPage}><div>4</div></button>
+                <button onClick={PostListPage}><div>5</div></button>
             </div>
         </>
     )

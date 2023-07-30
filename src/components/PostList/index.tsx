@@ -11,6 +11,7 @@ import { selectFavPost } from '../../Store/FavPosts/Selector'
 
 type Props = {
     tab: 'All' | 'My favorites' | 'My Posts'
+    page: number
 }
 
 const PostList = (props: Props) => {
@@ -19,8 +20,8 @@ const PostList = (props: Props) => {
     const [posts, setPosts] = useState<PostType[]>([])
 
     useEffect(() => {
-        GetPosts().then(res => setPosts(res))
-    }, [])
+        GetPosts(props.page).then(res => setPosts(res))
+    }, [props.page])
 
     const firstBigPost = posts.slice(0, 1)
     const midPosts = posts.slice(1, 5)
