@@ -11,3 +11,7 @@ export const GetPost = (id: string): Promise<PostType> => {
         .then(response => response.json())
         .then((result: PostType) => result)
 }
+
+export const updatePostLike = (id: number) => {
+    return Promise.resolve(true)
+}

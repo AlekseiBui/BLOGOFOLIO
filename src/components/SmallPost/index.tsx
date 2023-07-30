@@ -14,6 +14,8 @@ import { Link } from 'react-router-dom'
 import { Options, PostType } from '../../Types/Types'
 import { useDispatch } from 'react-redux'
 import { setAsFavoriteAction } from '../../Store/FavPosts/Actions'
+import { AppDispatch } from '../../Store'
+import { likePostThunk } from '../../Store/Posts/Actions'
 
 
 type Props = {
@@ -49,7 +51,11 @@ const SmallPost = (props: Props) => {
         }
     }, [theme.theme])
 
-    const dispatch = useDispatch()
+    const dispatch = useDispatch<AppDispatch>()
+    const onClickLike = (id: number) => {
+        dispatch(likePostThunk(id))
+    }
+
     const setAsFavorite = (post: PostType) => {
         dispatch(setAsFavoriteAction(post))
     }
@@ -68,10 +74,10 @@ const SmallPost = (props: Props) => {
             </div>
             <div className={`${styles.SmallPost_BottomPart}`}>
                 <div className={`${styles.LikeDislike}`}>
-                    <button><img src={`${optionsState.like}`} /></button>
-                    <div>0</div>
-                    <button><img src={`${optionsState.dislike}`} /></button>
-                    <div>0</div>
+                    <button onClick={() => onClickLike(props.post.id)}><img src={`${optionsState.like}`} /></button>
+                    <div>{props.post.author}</div>
+                    <button onClick={() => onClickLike(props.post.id)}><img src={`${optionsState.dislike}`} /></button>
+                    <div>{props.post.lesson_num}</div>
                 </div>
                 <div className={`${styles.FavOptions}`}>
                     <button onClick={() => setAsFavorite(props.post)}><img src={`${optionsState.bookmark}`} /></button>

@@ -11,6 +11,9 @@ export type PostType = {
     text: string
     date: string
     title: string
+    lesson_num: number
+    author: number
+    isLikeDislike?: 'liked' | 'disliked'
 }
 
 export type PostResponseType = {
